@@ -1,5 +1,5 @@
 // WAV File Data Reading
-// Program to read WAV file and return corresponding data
+// Program to read a WAV file and return corresponding data
 
 import java.io.*;
 import java.awt.*;
@@ -48,12 +48,13 @@ public class WavReader {
 		dialog.setMode(FileDialog.LOAD);
 		dialog.setFile("*.wav;");
 		dialog.setVisible(true);
+		String fileDir = dialog.getDirectory();
 		String file = dialog.getFile();
-
+		
 		// Reading WAV File
 		System.out.println("Reading WAV Data for file '" + file + "'. Please wait one moment.\n");
 		try {
-			BufferedInputStream inFile = new BufferedInputStream(new FileInputStream(file));
+			BufferedInputStream inFile = new BufferedInputStream(new FileInputStream(fileDir + file));
 			ByteArrayOutputStream wavData = new ByteArrayOutputStream();
 			
 			int read;
